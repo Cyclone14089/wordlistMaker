@@ -44,7 +44,14 @@ def initiate(lb, ub, fh) :
 
 if __name__ == "__main__" :
 
-    slices = (input("Enter the range and elements : ").strip()).split()
+    print("Note : If you enter a 'space' in the character set, please do NOT enter it at the BEGINNING or the END of the character set.")
+    print("command : [lowerbound of range] [space] [upperbound of range] [space] [character set]")
+    slices = input("Enter the range and elements : ").split()
+
+    if len(slices) > 3 :
+        for i in range(3, len(slices)) :
+            slices[2] = slices[2] + " " + slices[i]
+
     print(slices)
     
     for i in slices[2] :
@@ -80,3 +87,4 @@ if __name__ == "__main__" :
         initiate(int(slices[0]), int(slices[1]), fh)
 
         print("Done")
+        
