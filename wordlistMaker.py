@@ -56,23 +56,27 @@ if __name__ == "__main__" :
     print("Enter the name of the file you wish the output to be stored.\nIf you do not wish to create a file just leave it blank, in doing so the output generated will be displayed here.")
     f = input("Enter file name : ")
 
-    if f == "" :
+    if f == "" :  
+        print("Writing in file...")
         noFile(int(slices[0]), int(slices[1]))
 
     else :
 
-        print("Writing in file...")
-
         f = f + ".txt"
+        
         if os.path.isfile(f) :
-            choice = input("Do you want to overwrite the file ? (y/n) : ")
+            
+            choice = input("Do you want to overwrite the file ? (y/n) : ")  
+            
             if choice == "y" or choice == "Y" :
                 fh = open(f, "w")
             else :
                 fh = open(f, "a")
+                
         else :
             fh = open(f, "w")
-
+        
+        print("Writing in file...")
         initiate(int(slices[0]), int(slices[1]), fh)
 
         print("Done")
