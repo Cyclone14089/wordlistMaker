@@ -73,12 +73,24 @@ if __name__ == "__main__" :
 
         if os.path.isfile(f) :
 
-            choice = input("Do you want to overwrite the file ? (y/n) : ")
+            while True :
 
-            if choice == "y" or choice == "Y" :
-                fh = open(f, "w")
-            else :
-                fh = open(f, "a")
+                choice = input("Do you want to overwrite the file ? (y/n) : ")
+
+                if len(choice) == 1:
+
+                    n = "YNyn".find(choice)
+
+                    if n != -1:
+
+                        if n % 2 == 0:
+                            fh = open(f, "w")
+                            break
+                        else:
+                            fh = open(f, "a")
+                            break
+
+                print("Invalid choice !")
 
         else :
             fh = open(f, "w")
